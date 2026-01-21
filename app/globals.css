@@ -1,0 +1,315 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@import "tw-animate-css";
+/* Font imports: Inter, Raleway (with italics), Montserrat, Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Raleway:ital,wght@0,600;0,700;0,800;0,900;1,600;1,700;1,800;1,900&family=Montserrat:wght@700&family=Poppins:wght@400&display=swap");
+
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* layout / neutrals */
+  --neutral-white: #ffffff; /* Neutral White */
+  --neutral-pink: #fdebd0;
+  --card: #ffffff;
+  --card-foreground: #1a1a1a;
+  --popover: #ffffff;
+  --popover-foreground: #1a1a1a;
+  /* --primary: #dc2626; */
+  --primary: #DC143C;
+  --primary-foreground: #ffffff;
+  --accent: #F75270;
+  --secondary: #F7CAC9;
+  --secondary-foreground: #be185d;
+  --muted: #f3f4f6;
+  --muted-foreground: #6b7280;
+  --accent-foreground: #ffffff;
+  --accent: #F75270;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #e5e7eb;
+  --input: #e5e7eb;
+  --ring: #dc2626;
+  --chart-1: #dc2626;
+  --chart-2: #ec4899;
+  --chart-3: #f59e0b;
+  --chart-4: #8b5cf6;
+  --chart-5: #06b6d4;
+  /* secondary / accent variants requested */
+  --primary-2: #F0A9D1;
+  --accent-2: #F7B6CA;
+  --secondary-2: #FFC7C6;
+  /* accent gradient (angular-style) */
+  --accent-gradient: linear-gradient(135deg, rgba(240,169,209,0.7) 7%, rgba(247,182,202,0.3) 36%, rgba(254,199,200,0.8) 92%);
+  --linear: linear-gradient(90deg, #F75270 0%, #DC143C 100%);
+
+  --radius: 0.625rem;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #1a1a1a;
+  --sidebar-primary: #dc2626;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #ec4899;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #e5e7eb;
+  --sidebar-ring: #dc2626;
+}
+
+.dark {
+  --background: #0f172a;
+  --foreground: #f1f5f9;
+  --card: #1e293b;
+  --card-foreground: #f1f5f9;
+  --popover: #1e293b;
+  --popover-foreground: #f1f5f9;
+  --primary: #fca5a5;
+  --primary-foreground: #7f1d1d;
+  --secondary: #1e1b4b;
+  --secondary-foreground: #fce7f3;
+  --muted: #334155;
+  --muted-foreground: #cbd5e1;
+  --accent: #f472b6;
+  --accent-foreground: #831843;
+  --destructive: #f87171;
+  --destructive-foreground: #7f1d1d;
+  --border: #334155;
+  --input: #334155;
+  --ring: #fca5a5;
+  --chart-1: #fca5a5;
+  --chart-2: #f472b6;
+  --chart-3: #fbbf24;
+  --chart-4: #c084fc;
+  --chart-5: #22d3ee;
+  --sidebar: #1e293b;
+  --sidebar-foreground: #f1f5f9;
+  --sidebar-primary: #fca5a5;
+  --sidebar-primary-foreground: #7f1d1d;
+  --sidebar-accent: #f472b6;
+  --sidebar-accent-foreground: #831843;
+  --sidebar-border: #334155;
+  --sidebar-ring: #fca5a5;
+}
+
+@theme inline {
+  --font-sans: "Geist", "Geist Fallback";
+  --font-mono: "Geist Mono", "Geist Mono Fallback";
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  }
+
+  /* Headings use Raleway for heavier, display look (applies to h1-h4) */
+  /* h1, h2, h3, h4, .heading {
+    font-family: "Raleway", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    letter-spacing: -0.01em;
+  } */
+
+  /* Heading 1: Raleway ExtraBold, 50px */
+  h1,
+  .type-h1 {
+    font-family: var(--font-raleway), ui-sans-serif;
+    font-weight: 800;
+    font-size: 50px; /* default (large) */
+    line-height: 1.05;
+    color: var(--primary);
+  }
+
+  /* smaller on small screens */
+  @media (max-width: 767px) {
+    h1,
+    .type-h1 {
+      font-size: 25px;
+    }
+  }
+
+  /* reduced on medium screens (md) */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    h1,
+    .type-h1 {
+      font-size: 30px;
+    }
+  }
+
+  /* Button style */
+  .btn-montserrat {
+    font-family: "Montserrat", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    font-weight: 700;
+    font-size: 18px; /* large / default */
+    line-height: 1; /* keeps icon alignment tight */
+    padding: 12px 17px 12px 17px; /* default padding */
+  }
+
+  /* medium screens (md): slightly smaller */
+  @media (min-width: 0px) and (max-width: 767px) {
+    .btn-montserrat {
+      font-size: 10px;
+      padding: 3px 8px 3px 8px;
+    }
+  }
+
+  /* small screens (sm and below): smaller still */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .btn-montserrat {
+      font-size: 14px;
+      padding: 7px 12px 7px 12px;
+    }
+  }
+
+  /* Named text style utilities per request */
+  .type-heading {
+    font-family: var(--font-montserrat), ui-sans-serif, system-ui, -apple-system;
+    font-weight: 700; /* Bold */
+    font-size: 18px; /* default */
+  }
+
+  /* reduce heading size */
+  @media (min-width: 0px) and (max-width: 1023px) {
+    .type-heading {font-size: 14px; }
+  }
+
+
+  .type-subheading {
+    font-family: var(--font-raleway), ui-sans-serif, system-ui, -apple-system;
+    font-weight: 600; /* SemiBold */
+    font-style: italic;
+    font-size: 20px; /* base (pc) */
+  }
+
+  /* responsive sizes (Tailwind breakpoints) */
+  @media (min-width: 0px) { /* sm */
+    .type-subheading { width: 320px; font-size: 12px; }
+  }
+  @media (min-width: 768px) { /* md */
+    .type-subheading { width: 360px; font-size: 15px; }
+  }
+  @media (min-width: 1024px) { /* lg */
+    .type-subheading { width: 100%; font-size: 20px; }
+  }
+
+  .type-body {
+    font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system;
+    font-weight: 400; /* Regular */
+    font-size: 14px;
+  }
+  /* medium screens (md): slightly smaller */
+  @media (min-width: 0px) and (max-width: 767px) {
+    .type-body {
+      font-size: 8px;
+    }
+  }
+
+  /* small screens (sm and below): smaller still */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .type-body {
+      font-size: 10px;
+    }
+  }
+
+  .type-slogan {
+    font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 12px;
+  }
+
+  .type-raleway {
+    font-family: var(--font-raleway), ui-sans-serif, system-ui, -apple-system;
+    font-weight: 700; /* Bold */
+    font-size: 18px;
+  }
+  /* medium screens (md): slightly smaller */
+  @media (min-width: 0px) and (max-width: 767px) {
+    .type-raleway {
+      font-size: 12px;
+    }
+  }
+
+  /* small screens (sm and below): smaller still */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .type-raleway {
+      font-size: 14px;
+    }
+  }
+
+  .type-poppins {
+    font-family: var(--font-poppins), ui-sans-serif, system-ui, -apple-system;
+    font-weight: 400; /* Regular */
+    font-size: 14px;
+  }
+  /* Small screens (sm) */
+  @media (min-width: 0px) and (max-width: 767px) {
+    .type-poppins {
+      font-size: 10px;
+    }
+  }
+  /* medium screens (md) */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .type-poppins {
+      font-size: 12px;
+    }
+  }
+
+  .type-montserrat {
+    font-family: var(--font-montserrat), ui-sans-serif, system-ui, -apple-system;
+    font-weight: 700; /* Bold */
+    font-size: 22px;
+  }
+  /* Small screens (sm) */
+  @media (min-width: 0px) and (max-width: 767px) {
+    .type-montserrat {
+      font-size: 10px;
+    }
+  }
+  /* medium screens (md) */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .type-montserrat {
+      font-size: 12px;
+    }
+  }
+}
